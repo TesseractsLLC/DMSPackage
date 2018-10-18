@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tesseracts.DMS.Api", "Tesseracts.DMS.Api\Tesseracts.DMS.Api.csproj", "{2A52CB4F-56BA-4CFB-94DA-3D7DBAAD1F82}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Logic", "Business Logic", "{ADE92EA8-431E-4BF2-8665-757DE655CD24}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{F8E7B7C7-2D51-4E74-89E1-50C32F80ABC8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{164A41E1-C5C3-4709-A77B-B1E488CA9EDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tesseracts.DMS.Data", "Tesseracts.DMS.Data\Tesseracts.DMS.Data.csproj", "{0326218F-F28B-4308-B52F-5BBA0BCAC24A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tesseracts.DMS.Common", "Tesseracts.DMS.Common\Tesseracts.DMS.Common.csproj", "{20BE0248-F9E2-40E2-9D72-004E4DF941C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tesseracts.DMS.Logic", "Tesseracts.DMS.Logic\Tesseracts.DMS.Logic.csproj", "{F35F62F3-C60D-4DDA-BA53-06BFA865247D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A52CB4F-56BA-4CFB-94DA-3D7DBAAD1F82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A52CB4F-56BA-4CFB-94DA-3D7DBAAD1F82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A52CB4F-56BA-4CFB-94DA-3D7DBAAD1F82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A52CB4F-56BA-4CFB-94DA-3D7DBAAD1F82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0326218F-F28B-4308-B52F-5BBA0BCAC24A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0326218F-F28B-4308-B52F-5BBA0BCAC24A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0326218F-F28B-4308-B52F-5BBA0BCAC24A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0326218F-F28B-4308-B52F-5BBA0BCAC24A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20BE0248-F9E2-40E2-9D72-004E4DF941C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20BE0248-F9E2-40E2-9D72-004E4DF941C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20BE0248-F9E2-40E2-9D72-004E4DF941C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20BE0248-F9E2-40E2-9D72-004E4DF941C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F35F62F3-C60D-4DDA-BA53-06BFA865247D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F35F62F3-C60D-4DDA-BA53-06BFA865247D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F35F62F3-C60D-4DDA-BA53-06BFA865247D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F35F62F3-C60D-4DDA-BA53-06BFA865247D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F35F62F3-C60D-4DDA-BA53-06BFA865247D} = {ADE92EA8-431E-4BF2-8665-757DE655CD24}
+		{20BE0248-F9E2-40E2-9D72-004E4DF941C1} = {F8E7B7C7-2D51-4E74-89E1-50C32F80ABC8}
+		{0326218F-F28B-4308-B52F-5BBA0BCAC24A} = {164A41E1-C5C3-4709-A77B-B1E488CA9EDB}
+	EndGlobalSection
+EndGlobal
