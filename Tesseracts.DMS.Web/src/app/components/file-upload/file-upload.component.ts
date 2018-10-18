@@ -24,7 +24,6 @@ export class FileUploadComponent implements OnInit {
     hideSelectBtn: false
 };
 
-  //public files: UploadFile[] = [];
   constructor(private fileUploadService:FileUploadService) { }
 
   ngOnInit() {

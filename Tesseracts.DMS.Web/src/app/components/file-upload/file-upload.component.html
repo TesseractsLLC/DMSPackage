@@ -1,17 +1,5 @@
-<!-- <table>
-<tr *ngFor="let item of fil
-eUploadService.documentTags">
-  <td>{{item.Name}}</td>
-</tr>
-</table> -->
-<div class="col-md-6">
 <angular-file-uploader 
       [config]="afuConfig"
       [resetUpload]=resetVar
       (ApiResponse)="DocUpload($event)">
 </angular-file-uploader>
-</div>
-
-<!-- <p>
-  <button mat-raised-button color="primary" class="md-raised md-cornered md-primary" (click)="saveFiles()">Save Files</button>
-</p> -->
