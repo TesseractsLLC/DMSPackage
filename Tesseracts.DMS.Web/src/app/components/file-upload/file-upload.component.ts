@@ -18,7 +18,8 @@ export class FileUploadComponent implements OnInit {
       headers: {
       }
     },
-    theme: "dragNDrop",
+    theme: "attachPin",
+    //theme: "dragNDrop",
     hideProgressBar: false,
     hideResetBtn: true,
     hideSelectBtn: false
