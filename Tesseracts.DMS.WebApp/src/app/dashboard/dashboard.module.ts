@@ -31,6 +31,8 @@ import { DashboardRoutes } from './dashboard.routing';
     NgxDatatableModule,
     FlexLayoutModule
   ],
-  declarations: [DashboardComponent]
+  declarations: [
+    DashboardComponent,
+  ]
 })
 export class DashboardModule {}

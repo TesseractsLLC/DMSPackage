@@ -1,0 +1,8 @@
+C:\Projects\Nixon\Personal\Document Management System\Tesseracts.DMS\Tesseracts.DMS.Data\bin\Debug\Tesseracts.DMS.Data.dll.config
+C:\Projects\Nixon\Personal\Document Management System\Tesseracts.DMS\Tesseracts.DMS.Data\bin\Debug\Tesseracts.DMS.Data.dll
+C:\Projects\Nixon\Personal\Document Management System\Tesseracts.DMS\Tesseracts.DMS.Data\bin\Debug\Tesseracts.DMS.Data.pdb
+C:\Projects\Nixon\Personal\Document Management System\Tesseracts.DMS\Tesseracts.DMS.Data\bin\Debug\EntityFramework.dll
+C:\Projects\Nixon\Personal\Document Management System\Tesseracts.DMS\Tesseracts.DMS.Data\bin\Debug\EntityFramework.xml
+C:\Projects\Nixon\Personal\Document Management System\Tesseracts.DMS\Tesseracts.DMS.Data\obj\Debug\Tesseracts.DMS.Data.csprojResolveAssemblyReference.cache
+C:\Projects\Nixon\Personal\Document Management System\Tesseracts.DMS\Tesseracts.DMS.Data\obj\Debug\Tesseracts.DMS.Data.dll
+C:\Projects\Nixon\Personal\Document Management System\Tesseracts.DMS\Tesseracts.DMS.Data\obj\Debug\Tesseracts.DMS.Data.pdb

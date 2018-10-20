@@ -27,7 +27,7 @@ const MENUITEMS = [
     type: 'link',
     icon: 'explore'
   },
-  {
+  /* {
     state: 'apps',
     name: 'APPS',
     type: 'sub',
@@ -41,7 +41,7 @@ const MENUITEMS = [
       { state: 'chat', name: 'CHAT' }
     ]
   },
-  {
+ {
     state: 'widgets',
     name: 'WIDGETS',
     type: 'link',
@@ -205,7 +205,7 @@ const MENUITEMS = [
     name: 'DOCS',
     type: 'extTabLink',
     icon: 'local_library'
-  }
+  }*/
 ];
 
 @Injectable()
