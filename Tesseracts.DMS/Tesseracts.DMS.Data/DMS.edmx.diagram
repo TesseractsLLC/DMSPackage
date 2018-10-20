@@ -7,6 +7,8 @@
       <Diagram DiagramId="0c2da1a55fd04b2b853418d5953fc79c" Name="Diagram1">
         <EntityTypeShape EntityType="Tesseract.DMSModel.DocumentTag" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Tesseract.DMSModel.Setting" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="Tesseract.DMSModel.Document" Width="1.5" PointX="2.9103932599119813" PointY="1.9713407317043006" />
+        <AssociationConnector Association="Tesseract.DMSModel.FK__Document__Docume__3B75D760" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

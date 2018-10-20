@@ -8,6 +8,8 @@ namespace Tesseracts.DMS.Common
 {
     public interface IDocumentLogic
     {
-        bool SaveFile(string fileName, byte[] fileData);
+        bool SaveFile(List<FileData> fileUploadData);
+
+        FileData DownloadFile(string fileId);
     }
 }

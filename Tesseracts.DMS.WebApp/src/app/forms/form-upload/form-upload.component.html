@@ -1,13 +1,17 @@
 <mat-card>
   <mat-card-title>File upload</mat-card-title>
-  <mat-card-subtitle>Easy to use Angular2 directives for files upload</mat-card-subtitle>
+
+  <!-- <li *ngFor="let documentTag of fileUploadService.documentTags">
+      {{ documentTag }}
+    </li> -->
+  
+    <button mat-raised-button mat-button-sm color="accent" type="button" (click)="downloadTest('227cd521-f66d-4369-9567-d39a80a71475')">Download</button>
 
   <mat-card-content>
     <div fxLayout="row wrap" fxLayoutAlign="start">
-      <div fxFlex.gt-sm="20" fxFlex.gt-xs="50" fxFlex="100" class="pr-1">
+
+      <div fxFlex.gt-sm="30" fxFlex.gt-xs="50" fxFlex="100" class="pr-1">
         <h4 class="mt-0">Select files</h4>
-        <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)" [uploader]="uploader"
-          class="my-drop-zone mb-1">Base drop zone</div>
 
         <div ng2FileDrop [ngClass]="{'another-file-over-class': hasAnotherDropZoneOver}" (fileOver)="fileOverAnother($event)"
           [uploader]="uploader" class="my-drop-zone mb-1">Another drop zone</div>
@@ -16,11 +20,10 @@
         <input type="file" ng2FileSelect [uploader]="uploader" multiple /><br />
 
         <div class="clearfix mb-1"></div>
-
-        <p>Single</p>
-        <input type="file" ng2FileSelect [uploader]="uploader" />
       </div>
-      <div fxFlex.gt-sm="80" fxFlex.gt-xs="50" fxFlex="100">
+
+
+      <div fxFlex.gt-sm="70" fxFlex.gt-xs="50" fxFlex="100">
         <h4 class="mt-0" fxLayout="row">
           <span fxFlex>Upload queue</span>
           <span>Queue length: {{ uploader?.queue?.length }}</span>

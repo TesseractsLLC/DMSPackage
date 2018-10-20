@@ -14,11 +14,18 @@ namespace Tesseracts.DMS.Data
     
     public partial class DocumentTag
     {
+        public DocumentTag()
+        {
+            this.Documents = new HashSet<Document>();
+        }
+    
         public long Id { get; set; }
         public string Name { get; set; }
         public System.DateTime CreatedAt { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> ModifiedAt { get; set; }
         public string ModifiedBy { get; set; }
+    
+        public virtual ICollection<Document> Documents { get; set; }
     }
 }

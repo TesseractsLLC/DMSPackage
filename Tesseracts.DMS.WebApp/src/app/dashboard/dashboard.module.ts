@@ -11,11 +11,14 @@ import {
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { FileUploadModule } from 'ng2-file-upload/ng2-file-upload';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutes } from './dashboard.routing';
+import { FormUploadComponent } from '../forms/form-upload/form-upload.component';
+import { FileUploadService } from '../shared/file-upload.service';
 
 @NgModule({
   imports: [
@@ -29,10 +32,15 @@ import { DashboardRoutes } from './dashboard.routing';
     MatMenuModule,
     ChartsModule,
     NgxDatatableModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FileUploadModule,
   ],
   declarations: [
     DashboardComponent,
+    FormUploadComponent
+  ],
+  providers:[
+    FileUploadService
   ]
 })
 export class DashboardModule {}

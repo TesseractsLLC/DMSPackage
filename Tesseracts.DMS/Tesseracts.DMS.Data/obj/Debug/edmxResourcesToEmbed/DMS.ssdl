@@ -1,9 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Tesseract.DMSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="TesseractDMSModelStoreContainer">
+    <EntitySet Name="Document" EntityType="Tesseract.DMSModel.Store.Document" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="DocumentTag" EntityType="Tesseract.DMSModel.Store.DocumentTag" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Setting" EntityType="Tesseract.DMSModel.Store.Setting" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__Document__Docume__3B75D760" Association="Tesseract.DMSModel.Store.FK__Document__Docume__3B75D760">
+      <End Role="DocumentTag" EntitySet="DocumentTag" />
+      <End Role="Document" EntitySet="Document" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UniqueFileName" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="FileSavedPlatform" Type="varchar" MaxLength="500" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Extension" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="DocumentTagType" Type="bigint" />
+    <Property Name="DocumentTagValue" Type="varchar" Nullable="false" MaxLength="1000" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="255" />
+  </EntityType>
   <EntityType Name="DocumentTag">
     <Key>
       <PropertyRef Name="Id" />
@@ -24,4 +44,16 @@
     <Property Name="Value" Type="varchar(max)" Nullable="false" />
     <Property Name="Note" Type="varchar(max)" />
   </EntityType>
+  <Association Name="FK__Document__Docume__3B75D760">
+    <End Role="DocumentTag" Type="Tesseract.DMSModel.Store.DocumentTag" Multiplicity="0..1" />
+    <End Role="Document" Type="Tesseract.DMSModel.Store.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentTag">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="DocumentTagType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

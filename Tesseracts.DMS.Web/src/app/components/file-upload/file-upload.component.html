@@ -1,6 +1,14 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<div class="col-md-12">
+
+<div>
+      <label>Document Tags: </label>
+      <select (change)="filterForeCasts($event.target.value)">
+          <option *ngFor="let tag of fileUploadService.documentTags" value={{tag.Id}}>
+              {{tag.Name}}
+          </option>
+      </select>
+  </div>
 
 
 <div class="col-md-3">
@@ -11,7 +19,5 @@
 </angular-file-uploader>
 
 <!-- <input ng2FileSelect type="file" accept=".xml" [uploader]="uploader"/> -->
-
-</div>
 
 </div>

@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="DocumentTag.cs" />
     <Compile Include="Enumerations.cs" />
+    <Compile Include="FileData.cs" />
     <Compile Include="IDocumentLogic.cs" />
     <Compile Include="IMasterLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

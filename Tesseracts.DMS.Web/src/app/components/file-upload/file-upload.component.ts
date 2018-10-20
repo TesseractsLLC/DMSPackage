@@ -22,7 +22,7 @@ export class FileUploadComponent implements OnInit {
     //theme: "dragNDrop",
     hideProgressBar: false,
     hideResetBtn: true,
-    hideSelectBtn: false
+    hideSelclksectBtn: false
 };
 
   constructor(private fileUploadService:FileUploadService) { }

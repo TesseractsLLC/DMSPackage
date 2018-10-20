@@ -6,9 +6,29 @@
     <edmx:StorageModels>
     <Schema Namespace="Tesseract.DMSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="TesseractDMSModelStoreContainer">
+          <EntitySet Name="Document" EntityType="Tesseract.DMSModel.Store.Document" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DocumentTag" EntityType="Tesseract.DMSModel.Store.DocumentTag" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Setting" EntityType="Tesseract.DMSModel.Store.Setting" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__Document__Docume__3B75D760" Association="Tesseract.DMSModel.Store.FK__Document__Docume__3B75D760">
+            <End Role="DocumentTag" EntitySet="DocumentTag" />
+            <End Role="Document" EntitySet="Document" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UniqueFileName" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="FileSavedPlatform" Type="varchar" MaxLength="500" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Extension" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="DocumentTagType" Type="bigint" />
+          <Property Name="DocumentTagValue" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
         <EntityType Name="DocumentTag">
           <Key>
             <PropertyRef Name="Id" />
@@ -29,6 +49,18 @@
           <Property Name="Value" Type="varchar(max)" Nullable="false" />
           <Property Name="Note" Type="varchar(max)" />
         </EntityType>
+        <Association Name="FK__Document__Docume__3B75D760">
+          <End Role="DocumentTag" Type="Tesseract.DMSModel.Store.DocumentTag" Multiplicity="0..1" />
+          <End Role="Document" Type="Tesseract.DMSModel.Store.Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentTag">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="DocumentTagType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -36,6 +68,11 @@
         <EntityContainer Name="Entities" p1:LazyLoadingEnabled="true">
           <EntitySet Name="DocumentTags" EntityType="Tesseract.DMSModel.DocumentTag" />
           <EntitySet Name="Settings" EntityType="Tesseract.DMSModel.Setting" />
+          <EntitySet Name="Documents" EntityType="Tesseract.DMSModel.Document" />
+          <AssociationSet Name="FK__Document__Docume__3B75D760" Association="Tesseract.DMSModel.FK__Document__Docume__3B75D760">
+            <End Role="DocumentTag" EntitySet="DocumentTags" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="DocumentTag">
           <Key>
@@ -47,6 +84,7 @@
           <Property Name="CreatedBy" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
           <Property Name="ModifiedAt" Type="DateTime" Precision="3" />
           <Property Name="ModifiedBy" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Documents" Relationship="Tesseract.DMSModel.FK__Document__Docume__3B75D760" FromRole="DocumentTag" ToRole="Document" />
         </EntityType>
         <EntityType Name="Setting">
           <Key>
@@ -57,6 +95,34 @@
           <Property Type="String" Name="Value" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Note" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UniqueFileName" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FileSavedPlatform" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Extension" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int64" Name="DocumentTagType" />
+          <Property Type="String" Name="DocumentTagValue" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsActive" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="false" Precision="3" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DocumentTag" Relationship="Tesseract.DMSModel.FK__Document__Docume__3B75D760" FromRole="Document" ToRole="DocumentTag" />
+        </EntityType>
+        <Association Name="FK__Document__Docume__3B75D760">
+          <End Type="Tesseract.DMSModel.DocumentTag" Role="DocumentTag" Multiplicity="0..1" />
+          <End Type="Tesseract.DMSModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentTag">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="DocumentTagType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -81,6 +147,22 @@
                 <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="Value" ColumnName="Value" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documents">
+            <EntityTypeMapping TypeName="Tesseract.DMSModel.Document">
+              <MappingFragment StoreEntitySet="Document">
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DocumentTagValue" ColumnName="DocumentTagValue" />
+                <ScalarProperty Name="DocumentTagType" ColumnName="DocumentTagType" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FileSavedPlatform" ColumnName="FileSavedPlatform" />
+                <ScalarProperty Name="UniqueFileName" ColumnName="UniqueFileName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

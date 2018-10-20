@@ -23,5 +23,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Documents">
+      <EntityTypeMapping TypeName="Tesseract.DMSModel.Document">
+        <MappingFragment StoreEntitySet="Document">
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DocumentTagValue" ColumnName="DocumentTagValue" />
+          <ScalarProperty Name="DocumentTagType" ColumnName="DocumentTagType" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FileSavedPlatform" ColumnName="FileSavedPlatform" />
+          <ScalarProperty Name="UniqueFileName" ColumnName="UniqueFileName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -20,9 +20,8 @@ namespace Tesseracts.DMS.Data
         {
         }
 
-        public Entities(string connectionString):base(connectionString)
+        public Entities(string connectionString) : base(connectionString)
         {
-            
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -32,5 +31,6 @@ namespace Tesseracts.DMS.Data
     
         public DbSet<DocumentTag> DocumentTags { get; set; }
         public DbSet<Setting> Settings { get; set; }
+        public DbSet<Document> Documents { get; set; }
     }
 }
