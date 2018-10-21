@@ -49,10 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseHelper.cs" />
-    <Compile Include="DocumentLogic.cs" />
-    <Compile Include="LogHelper.cs" />
-    <Compile Include="MasterLogic.cs" />
+    <Compile Include="Common\DatabaseHelper.cs" />
+    <Compile Include="Logic\DocumentLogic.cs" />
+    <Compile Include="Common\LogHelper.cs" />
+    <Compile Include="Logic\MasterLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

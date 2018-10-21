@@ -14,13 +14,5 @@ namespace Tesseracts.DMS.Controllers
         {
             return "Nixon Chakiath";
         }
-
-        [HttpGet]
-        [ActionName("GetAllDocumentTags")]
-        public IEnumerable<DocumentTagDetails> GetAllDocumentTags()
-        {
-            return MasterLogic.Instance.GetAllDocumentTags();
-        }
-
     }
 }

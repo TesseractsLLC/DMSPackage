@@ -13,7 +13,7 @@ export class FileUploadService {
   }
 
   getAllDocumentTags(){
-    this.httpClient.get("http://localhost:49234/api/master/GetAllDocumentTags").
+    this.httpClient.get("http://localhost:49234/api/document/GetAllDocumentTags").
     subscribe(tags => {this.documentTags = tags as DocumentTag[]});
   }
 

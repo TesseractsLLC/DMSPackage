@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -12,9 +13,26 @@ using Tesseracts.DMS.Logic;
 
 namespace Tesseracts.DMS.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [EnableCors(origins: "", headers: "*", methods: "*")]
     public class DocumentController : ApiController
     {
+        [HttpGet]
+        [ActionName("GetAllDocumentTags")]
+        public IEnumerable<DocumentTagDetails> GetAllDocumentTags()
+        {
+            return DocumentLogic.Instance.GetAllDocumentTags();
+        }
+
+        public IEnumerable<DocumentDetails> GetAllDocuments()
+        {
+            return DocumentLogic.Instance.GetAllDocuments();
+        }
+
+        public IEnumerable<DocumentDetails> GetAllDocuments(int documentTagId, string documentTagValue)
+        {
+            return DocumentLogic.Instance.GetAllDocuments(documentTagId, documentTagValue);
+        }
+
         [HttpPost]
         public async Task<IHttpActionResult> UploadFile()
         {
@@ -37,7 +55,7 @@ namespace Tesseracts.DMS.Controllers
                         String.IsNullOrEmpty(contentPart.Headers.ContentType.MediaType) ? "" : contentPart.Headers.ContentType.MediaType;
                     formItems.Add(formItem);
                 }
-                DocumentLogic.Instance.SaveFile(formItems);
+                DocumentLogic.Instance.UploadFile(formItems);
             }
             catch (Exception ex)
             {
@@ -54,8 +72,11 @@ namespace Tesseracts.DMS.Controllers
             HttpResponseMessage response = null;
             try
             {
+                if (String.IsNullOrEmpty(fileId))
+                    return Request.CreateResponse(HttpStatusCode.BadRequest);
+
                 var file = DocumentLogic.Instance.DownloadFile(fileId);
-                response = Request.CreateResponse(HttpStatusCode.OK);
+                response = new HttpResponseMessage(HttpStatusCode.OK);
                 response.Content = new ByteArrayContent(file.DataBuffer);
                 response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("inline")
                 {

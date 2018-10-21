@@ -59,12 +59,34 @@ export class FormUploadComponent {
   }
 
   public downloadTest(fileId:any):void{
-    //alert(fileId);
-    //let thefile = {};
 
     let fileDownloadParams = new HttpParams().set('fileId', fileId);
+    console.log("Calling downLoadFile");
     this.httpClient.get("http://localhost:49234/api/document/DownloadFile", 
-      {params: fileDownloadParams}).subscribe(data => window.open(window.URL.createObjectURL(data)));;
+    {
+        params: fileDownloadParams
+    }).subscribe(data => this.downLoadFile(data, ''));
+
+    // window.open(window.URL.createObjectURL(data)
+    // window.open("http://localhost:49234/api/document/DownloadFile")
   }
+
+
+  private downLoadFile(data: any, type: string) {
+    console.log("In downLoadFile");
+    if (data == null || !data){
+      console.log("Data is null");
+      return;
+    }
+    console.log(data);
+    window.open(window.URL.createObjectURL(data);
+
+    // var blob = new Blob([data], { type: type});
+    // var url = window.URL.createObjectURL(blob);
+    // var pwa = window.open(url);
+    // if (!pwa || pwa.closed || typeof pwa.closed == 'undefined') {
+    //     alert( 'Please disable your Pop-up blocker and try again.');
+    // }
+}
 
 }

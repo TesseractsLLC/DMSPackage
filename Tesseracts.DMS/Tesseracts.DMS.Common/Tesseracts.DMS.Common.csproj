@@ -39,11 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DocumentTag.cs" />
+    <Compile Include="Classes\BaseEntity.cs" />
+    <Compile Include="Classes\DocumentDetails.cs" />
+    <Compile Include="Classes\DocumentTagDetails.cs" />
     <Compile Include="Enumerations.cs" />
-    <Compile Include="FileData.cs" />
-    <Compile Include="IDocumentLogic.cs" />
-    <Compile Include="IMasterLogic.cs" />
+    <Compile Include="Classes\FileData.cs" />
+    <Compile Include="Interfaces\IDocumentLogic.cs" />
+    <Compile Include="Interfaces\IMasterLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

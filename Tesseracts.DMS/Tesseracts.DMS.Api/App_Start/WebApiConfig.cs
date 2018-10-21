@@ -15,7 +15,10 @@ namespace Tesseracts.DMS
     {
         public static void Register(HttpConfiguration config)
         {
-            var enableCorsAttribute = new EnableCorsAttribute("*", "*", "*");
+            var enableCorsAttribute = new EnableCorsAttribute("*", "*", "*")
+            {
+                SupportsCredentials = false
+            };
             config.EnableCors(enableCorsAttribute);
 
             // Web API configuration and services
