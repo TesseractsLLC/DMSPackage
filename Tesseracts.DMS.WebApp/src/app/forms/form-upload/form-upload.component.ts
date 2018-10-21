@@ -79,7 +79,7 @@ export class FormUploadComponent {
       return;
     }
     console.log(data);
-    window.open(window.URL.createObjectURL(data);
+    window.open(window.URL.createObjectURL(data));
 
     // var blob = new Blob([data], { type: type});
     // var url = window.URL.createObjectURL(blob);
